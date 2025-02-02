@@ -10,24 +10,29 @@
 </head>
 <body>
     <div class="container">
-        <h1>Todo List</h1>
+        <h1><img src="images/hangul.png" id="logo"/>할 일 목록</h1>
+        <img src="images/sejongking.jpg" id="main-img"/>
         <section class="input-area"> <!-- div에서 section으로 구분함(수정) -->
-            <input type="text" id="task-input"/>
+            <input type="text" id="task-input" placeholder="오늘의 할일은?"/>
             <button id="add-button">+</button>
         </section>
 
         <section class="task-area">
             <div class="task-tabs">
+            <nav>
+                <!-- <div id="under-line"></div> -->
+                <a id="all" href="#" class="active">
+                    전체
+                </a>
+                <a id="ongoing" href="#">
+                    진행중
+                </a>
+                <a id="done" href="#">
+                    완료
+                </a>
+                <img src="images/king sejong.png" id="tabs-img"/>
                 <div id="under-line"></div>
-                <div>
-                    All
-                </div>
-                <div>
-                    not Done
-                </div>
-                <div>
-                    Done
-                </div>
+            </nav>
             </div>
             <div id="task-board">
                 

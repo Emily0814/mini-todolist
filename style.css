@@ -1,42 +1,203 @@
 body {
     margin: 0;
-    background-image: url("images/second-background.jpg");
+    background-image: url("images/hanjibackground.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    font-family: 'MyCustomFont', sans-serif;
+}
+
+@font-face {
+    font-family: 'MyCustomFont'; /* 폰트의 이름 */
+    src: url('fonts/EBS훈민정음L.ttf') format('truetype'),
+         url('fonts/EBS훈민정음R.ttf') format('truetype'),
+         url('fonts/EBS훈민정음SB.ttf') format('truetype');
 }
 
 .container {
     background-color: whitesmoke;
+    background-size: 100%;
     min-height: 100vh;  /* 내가 보는 화면의 높이만큼 커짐  */
+    /*transform: scale(0.75);  /* 75%로 축소 */
+    /*transform-origin: top center;  /* 상단 중앙 기준으로 축소 */
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    padding: 20px;
+    max-width: 800px;
+}
+
+/* 로고 스타일 */
+#logo {
+    width: .5em;
+}
+
+/* 메인 이미지 스타일 */
+#main-img {
+    width: 100%;
+    /* border: 1px black solid; 확인용 */
+    border-radius: 0 0 80px 80px;
+    object-fit: cover;
+}
+
+/* 입력창 영역 스타일 */
+.input-area {
+    display: flex;
+    position: relative; /* 상대 위치로 설정, 원래 위치를 기준 */
+    top: 50%;   /* 컨테이너의 중간에 위치하도록 설정 */
+    left: 50%;  /* 가로 중앙 정렬 */
+    transform: translate(-50%, -50%);  /* 중앙 정렬을 위한 변환 */
+    z-index: 1;
+    align-items: center;
+    gap: 10px;  /* input, button 간격 */
+    width: 100%;
+    height: 60px;
+    /* border: 1px solid #333; */
+    background-color: whitesmoke;
+    justify-content: center;
+}
+
+/* 입력 필드 스타일 */
+#task-input {
+    padding: 5px;
+    width: 60%; /* 입력 필드의 너비 설정 */
+    border-radius: 5px;
+    border: 2px solid #ccc;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+/* 추가 버튼 스타일 */
+#add-button {
+    padding: 5px;
+    background-color: #ccc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+#add-button:hover {
+    background-color: #ccc;
 }
 
 .task-area {
     border: 1px solid lightgray;
+    display: flex;
+    position: relative;
+    flex-direction: column;
 }
 
 .task-tabs {
-    display: flex;
     border-bottom: 1px solid lightgray;
-    position: relative;
+    position: relative; /* #under-line을 상대적 위치에 배치하기 위한 설정 */
 }
 
-.task-tabs div {
+.task-tabs nav {
+    display: flex;
+    width: 100%;
+}
+
+.task-tabs a {
     padding: 1em;
+    cursor: pointer;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+    display: flex;
+    justify-content: flex-start;
+}
+
+#tabs-img {
+    width: auto;
+    height: 90%;
+    position: absolute;
+    bottom: 0;
+    right: 10px;    /* 오른쪽 끝에 밀착되도록 설정 */
+    margin-left: auto; /* 이미지 오른쪽 정렬 */
 }
 
 #under-line {
-    height: 4px;
-    background-color: pink;
+    height: 5px;
+    background-color: #C6B9B2;
     position: absolute;
-    width: 67px;
-    left: 0px;
-    top: 52px;
-    padding: 0px;
+    bottom: 0;
+    left: 0;
+    transition: 0.5s;
 }
 
 .task {
     display: flex;
     justify-content: space-between;
     padding: 1em;
+}
+
+.task-done {
+    text-decoration: line-through;
+}
+
+
+
+/* 모바일 화면을 위한 media query */
+@media (max-width: 768px) {
+
+    /* 이미지 크기 조정 */
+    #main-img {
+        object-fit: contain; /* 작은 화면에서는 이미지 비율을 유지하면서 표시 */
+    }
+
+    #tabs-img {
+        width: 8%;  /* 작은 화면에서 크기를 조금 더 크게 설정 */
+        height: auto; /* 높이는 비율에 맞게 자동으로 조정 */
+    }
+
+    #under-line {
+        height: 1em;  /* 작은 화면에서 굵기 약간 줄이기 */
+    }
+
+    /* 입력 필드 영역 */
+    .input-area {
+        top: 40%; /* 작은 화면에서 입력 필드를 조금 더 위로 */
+        width: 90%; /* 화면 크기에 맞게 입력 필드 너비를 더 넓힘 */
+    }
+
+    #task-input {
+        width: 100%; /* 입력 필드가 화면 너비에 맞게 확장 */
+    }
+    
+    /* 탭 크기 조정 */
+    .task-tabs div, a {
+        padding: 0.8em; /* 탭 크기를 조금 줄임 */
+    }
+}
+
+/* 아주 작은 화면 (모바일 세로 모드 등) */
+@media (max-width: 480px) {
+
+    #tabs-img {
+        width: 10%;  /* 아주 작은 화면에서는 크기를 더 크게 설정 */
+        height: auto;
+    }
+
+    #under-line {
+        height: 1em;  /* 아주 작은 화면에서 굵기 더 줄이기 */
+    }
+
+    .input-area {
+        top: 35%; /* 모바일에서 입력 필드를 더 위로 배치 */
+    }
+
+    #task-input {
+        font-size: 14px; /* 작은 화면에서는 글자 크기를 작게 */
+    }
+    
+    /* 탭 스타일 조정 */
+    .task-tabs div, a {
+        padding: 0.6em; /* 더 작은 화면에서 탭 크기 축소 */
+    }
+}
+
+/* 화면이 320px 이하일 때 굵기 조정 */
+@media (max-width: 320px) {
+    #under-line {
+        height: 1em;  /* 아주 작은 화면에서는 더 얇게 설정 */
+    }
 }
