@@ -3,7 +3,7 @@
  아이템 추가 제거, 그리고 상태별 할일을 볼수있는 앱입니다.
 
 
-데모앱🎬:https://noona-todolist.netlify.app
+데모앱🎬:https://ajaaja-second-project.netlify.app
 
 ### 기능
 - 유저는 할일을 추가할 수 있다.
