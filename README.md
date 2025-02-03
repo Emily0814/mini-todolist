@@ -1,5 +1,5 @@
 # Todo 앱
-![image](https://github.com/user-attachments/assets/41f3b649-30e7-4003-83f7-8c0c632f36ee)
+![image](https://github.com/user-attachments/assets/25b47c2e-1f29-4034-8633-a627b9210a7c)
  아이템 추가 제거, 그리고 상태별 할일을 볼수있는 앱입니다.
 
 
