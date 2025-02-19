@@ -115,8 +115,8 @@ function render() {
                 <div class="task">
                     <div class="${task.isComplete ? 'task-done' : ''}">${task.taskContent}</div>
                     <div>
-                        <button onclick="toggleComplete('${task.id}')">Check</button>
-                        <button onclick="deleteTask('${task.id}')">Delete</button>
+                        <button onclick="toggleComplete('${task.id}')">완료</button>
+                        <button onclick="deleteTask('${task.id}')">삭제</button>
                     </div>
                 </div>
             `;
