@@ -111,9 +111,13 @@ function render() {
         // task 리스트를 HTML로 변환
         for (let i = 0; i < list.length; i++) {
             let task = list[i];
+
+            // 완료된 항목에는 배경색을 변경
+            const taskBackground = task.isComplete ? 'background-color: #efefef;' : 'background-color: transparent;';
+
             resultHTML += `
-                <div class="task">
-                    <div class="${task.isComplete ? 'task-done' : ''}">${task.taskContent}</div>
+                <div class="task" style="${taskBackground}">
+                    <div class="${task.isComplete ? 'task-done' : ''}" style="text-decoration: ${task.isComplete ? 'line-through' : 'none'};">${task.taskContent}</div>
                     <div>
                         <button onclick="toggleComplete('${task.id}')">완료</button>
                         <button onclick="deleteTask('${task.id}')">삭제</button>

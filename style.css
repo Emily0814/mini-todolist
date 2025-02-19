@@ -130,10 +130,9 @@ body {
     padding: 1em;
 }
 
-.task-done {
+/* .task-done {
     text-decoration: line-through;
-}
-
+} */
 
 
 /* 모바일 화면을 위한 media query */
