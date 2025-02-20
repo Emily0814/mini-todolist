@@ -18,6 +18,7 @@ let taskList = [];
 let filterList = [];
 
 addButton.addEventListener("click", addTask);
+taskInput.addEventListener('keypress', function(event){ addTask(); });
 
 //기존 코드 제거
 // for(let i=1; i<tabs.length; i++) { //시작을 1부터 하는 이유? underline때문에
